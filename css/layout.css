@@ -1,0 +1,16 @@
+.navbar-red {
+    background-color:#E53C33;
+    color:#ffffff;
+    border-radius:0;
+}
+
+.navbar-red .navbar-nav > li > a {
+    color:#fff;
+}
+.navbar-red .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+    color: #ffffff;
+    background-color:transparent;
+}
+.navbar-red .navbar-brand {
+    color:#eeeeee;
+}
