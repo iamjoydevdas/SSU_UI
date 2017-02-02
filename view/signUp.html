@@ -1,0 +1,76 @@
+<div class="col-sm-3"></div>
+<div class="col-sm-8">
+<form name='signUp' class="form-horizontal" >
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="firstName">First Name:</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="firstName" ng-required = 'true' ng-model='firstName' placeholder="Enter First Name">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="middleName">Middle Name:</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="middleName" ng-required = 'true' ng-model='middleName' placeholder="Enter Middle Name">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="lastName">Last Name:</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="lastName" ng-required = 'true' ng-model='lastName' placeholder="Enter Last Name">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="displayName">Display Name:</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="displayName" ng-required = 'true' ng-model='displayName' placeholder="Display Name">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="sex">Sex:</label>
+    <div class="col-sm-6">
+      <select name='sex' class="form-control" id="sex" ng-required = 'true' ng-model='sex' placeholder = "Enter sex">
+      <option value="F">Female</option>
+      <option value="M">Male</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="email">Email:</label>
+    <div class="col-sm-6">
+      <input type="email" class="form-control" id="email" ng-required = 'true' ng-model='email' placeholder="Enter Email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="pwd">Password:</label>
+    <div class="col-sm-6"> 
+      <input type="password" class="form-control" id="pwd" ng-required = 'true' ng-model='pwd' placeholder="Enter password">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="rePwd">Retype Password:</label>
+    <div class="col-sm-6"> 
+      <input type="password" class="form-control" id="rePwd" ng-required = 'true' ng-model='rePwd' placeholder="Retype password">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="seqQ">Sequrity Question:</label>
+    <div class="col-sm-6"> 
+      <input type="text" class="form-control" id="seqQ" ng-required = 'true' ng-model='seqQ' placeholder="Sequrity Question">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="seqA">Sequrity answer:</label>
+    <div class="col-sm-6"> 
+    <input type="text" class="form-control" id="seqA" ng-required = 'true' ng-model='seqA' placeholder="Sequrity Answer">
+    </div>
+  </div>
+  
+  
+  <div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-6">
+      <button type="submit" class="btn btn-default" ng-disabled="form.signUp.$valid">Submit</button>
+    </div>
+  </div>
+</form>
+</div>
