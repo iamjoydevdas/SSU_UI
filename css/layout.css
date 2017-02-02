@@ -14,3 +14,10 @@
 .navbar-red .navbar-brand {
     color:#eeeeee;
 }
+
+footer {
+    position: fixed;
+    height: 30px;
+    bottom: 0;
+    width: 100%;
+}
