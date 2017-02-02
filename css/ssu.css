@@ -1,2 +1,15 @@
-/* CSS Document */
+.ssu-well {
+	border-radius: 0px;
+	border-left-width: medium;
+    border-left-color: red;
+    border-left-style: solid;
+    margin-top: 10px;
+}
 
+.ssu-height-100px {
+	height: 100px;
+}
+
+.ssu-height-30px {
+	margin-top: 30px;
+}
