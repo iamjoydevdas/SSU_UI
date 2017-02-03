@@ -1,1 +1,1 @@
-angular.module('ssu',['ngRoute']);
+angular.module('ssu',['ngRoute','ui.bootstrap']);

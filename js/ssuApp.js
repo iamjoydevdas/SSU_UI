@@ -1,1 +1,1 @@
-angular.module('ssu');
+angular.module('ssu',[]);
