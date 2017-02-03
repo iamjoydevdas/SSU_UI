@@ -9,20 +9,12 @@
 	<link href="css/ssu.css" rel="stylesheet" type="text/css"  />
 	<script src="./lib/angular.min.js"></script>
 	<script src="./lib/angular-route.min.js"></script>
+	<script src="./lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
 	<script src="./js/ssuApp.js"></script>
 	<script src="./js/ssuModule.js"></script>
 	<script src="./js/ssuRoute.js"></script>
 	<script src="./js/ssuController.js"></script>
  	<script src="./js/ssuService.js"></script>
-	<!-- <script src="./js/ssuDirective.js"></script>  -->
-	 <script>
-	 $("[data-toggle=popover]").popover({
-		    html: true, 
-			content: function() {
-		          return $('#popover-content').html();
-		        }
-		});
-	</script >
 </head>
 <body>
 <div class="container" ng-app='ssu'>
@@ -41,20 +33,6 @@
 		<ul class="nav navbar-nav navbar-right">
 		  <li><a href="#/signUp"><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
 		  <li><a data-placement="bottom" data-toggle="popover" data-title="Login" data-container="body" type="button" data-html="true" href="#" id="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-		  <div id="popover-content" class="hide">
-		      <form class="form-inline" role="form">
-		        <div class="form-group">
-		          <select class="form-control">
-		            <option>NA</option>
-		            <option>RU</option>
-		            <option>EU</option>
-		            <option>SEA</option>
-		          </select> 
-		          <input type="text" placeholder="Name" class="form-control" maxlength="5">
-		          <button type="submit" class="btn btn-primary">Go To Login »</button>                                  
-		        </div>
-		      </form>
-		    </div>
 		</ul>
 		
 	  </div>
