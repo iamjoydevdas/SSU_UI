@@ -1,7 +1,7 @@
 angular.module("ssu").controller('homeController', function(){
 
 })
-.controller('signUpController', function(){
+.controller('signUpController', function($scope){
 	$scope.firstName = "";
 	$scope.middleName = "";
 	$scope.lastName = "";
