@@ -4,83 +4,93 @@
   <div class="form-group">
     <label class="control-label col-sm-2" for="firstName">First Name:</label>
     <div class="col-sm-6">
-      <input type="text" class="form-control" id="firstName" ng-required = 'true' ng-model='firstName' placeholder="Enter First Name">
+      <input type="text" class="form-control" name="firstName" id="firstName" ng-required = 'true' ng-model='firstName' placeholder="Enter First Name">
+    	<span style="color:red" ng-show="signUp.firstName.$dirty && signUp.firstName.$invalid">
+		<span ng-show="signUp.firstName.$error.required">First Name is required.</span></span>
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="middleName">Middle Name:</label>
     <div class="col-sm-6">
-      <input type="text" class="form-control" id="middleName" ng-required = 'true' ng-model='middleName' placeholder="Enter Middle Name">
+      <input type="text" class="form-control" name="middleName" id="middleName" ng-required = 'true' ng-model='middleName' placeholder="Enter Middle Name">
+	    
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="lastName">Last Name:</label>
     <div class="col-sm-6">
-      <input type="text" class="form-control" id="lastName" ng-required = 'true' ng-model='lastName' placeholder="Enter Last Name">
+      <input type="text" class="form-control" name="lastName" id="lastName" ng-required = 'true' ng-model='lastName' placeholder="Enter Last Name">
+    		<span style="color:red" ng-show="signUp.lastName.$dirty && signUp.lastName.$invalid">
+			<span ng-show="signUp.lastName.$error.required">Last Name is required.</span></span>
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-sm-2" for="displayName">Display Name:</label>
+    <label class="control-label col-sm-2" for="userName">User Name:</label>
     <div class="col-sm-6">
-      <input type="text" class="form-control" id="displayName" ng-required = 'true' ng-model='displayName' placeholder="Display Name">
-    </div>
+      <input type="text" class="form-control" name="userName" id="userName" ng-required = 'true' ng-model='userName' placeholder="User Name">
+  			<span style="color:red" ng-show="signUp.userName.$dirty && signUp.userName.$invalid">
+			<span ng-show="signUp.userName.$error.required">Username is required.</span></span>
+ </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-sm-2" for="sex">Sex:</label>
+    <label class="control-label col-sm-2" for="sex">Gender:</label>
     <div class="col-sm-6">
-      <select name='sex' class="form-control" id="sex" ng-required = 'true' ng-model='sex' placeholder = "Enter sex">
+      <select name='sex' class="form-control" name="gender" id="gender" ng-required = 'true' ng-model='gender' placeholder = "Enter sex">
       <option value="F">Female</option>
       <option value="M">Male</option>
       </select>
+        <span style="color:red" ng-show="signUp.gender.$dirty && signUp.gender.$invalid">
+		<span ng-show="signUp.gender.$error.required">Choose the Gender</span>
+		</span>
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="email">Email:</label>
     <div class="col-sm-6">
-      <input type="email" class="form-control" id="email" ng-required = 'true' ng-model='email' placeholder="Enter Email">
+      <input type="email" class="form-control" name="email" id="email" ng-required = 'true' ng-model='email' placeholder="Enter Email">
+	  <span style="color:red" ng-show="signUp.email.$dirty && signUp.email.$invalid">
+      <span ng-show="signUp.email.$error.required">Email is required</span>
+	  <span ng-show="signUp.email.$error.email">Invalid Email address</span></span>
     </div>
-  </div>
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="dob">DOB:</label>
-    <div class="col-sm-6">
-		<p class="input-group">
-			<input type="text" class="form-control" uib-datepicker-popup ng-required="true" close-text="Close" /> 
-		    <span class="input-group-btn">
-				<button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
-			</span>
-		</p>
-	</div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="pwd">Password:</label>
     <div class="col-sm-6"> 
-      <input type="password" class="form-control" id="pwd" ng-required = 'true' ng-model='pwd' placeholder="Enter password">
+      <input type="password" class="form-control" name="pwd" id="pwd" ng-required = 'true' ng-model='pwd' placeholder="Enter password">
+   	  <span style="color:red" ng-show="signUp.pwd.$dirty && signUp.pwd.$invalid">
+			 <span ng-show="signUp.pwd.$error.required">Password is required.</span></span>
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="rePwd">Retype Password:</label>
     <div class="col-sm-6"> 
-      <input type="password" class="form-control" id="rePwd" ng-required = 'true' ng-model='rePwd' placeholder="Retype password">
+      <input type="password" class="form-control" name="rePwd" id="rePwd" ng-required = 'true' ng-model='rePwd' placeholder="Retype password">
+    		<span style="color:red" ng-show="signUp.rePwd.$dirty && signUp.rePwd.$invalid">
+			<span ng-show="signUp.rePwd.$error.required">Retype the password </span></span>
     </div>
   </div>
   
   <div class="form-group">
     <label class="control-label col-sm-2" for="seqQ">Sequrity Question:</label>
     <div class="col-sm-6"> 
-      <input type="text" class="form-control" id="seqQ" ng-required = 'true' ng-model='seqQ' placeholder="Sequrity Question">
+      <input type="text" class="form-control" name="seqQ" id="seqQ" ng-required = 'true' ng-model='seqQ' placeholder="Sequrity Question">
+   				 <span style="color:red" ng-show="signUp.seqQ.$dirty && signUp.seqQ.$invalid">
+				 <span ng-show="signUp.seqQ.$error.required">Sequrity Question is required.</span></span>
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="seqA">Sequrity answer:</label>
     <div class="col-sm-6"> 
-    <input type="text" class="form-control" id="seqA" ng-required = 'true' ng-model='seqA' placeholder="Sequrity Answer">
+    <input type="text" class="form-control" name="seqA" id="seqA" ng-required = 'true' ng-model='seqA' placeholder="Sequrity Answer">
+    		<span style="color:red" ng-show="signUp.seqA.$dirty && signUp.seqA.$invalid">
+			<span ng-show="signUp.seqA.$error.required">Sequrity Answer is required.</span></span>
     </div>
   </div>
   
   
   <div class="form-group"> 
     <div class="col-sm-offset-2 col-sm-6">
-      <button type="submit" class="btn btn-default" ng-disabled="form.signUp.$valid">Submit</button>
+      <button type="submit" class="btn btn-default" ng-disabled="signUp.$invalid"">Submit</button>
     </div>
   </div>
 </form>

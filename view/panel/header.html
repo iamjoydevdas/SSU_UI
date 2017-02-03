@@ -1,3 +1,4 @@
+<div ng-controller = "headerController">
 <nav class="navbar navbar-red">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -10,8 +11,10 @@
 			<li><a href="#">Photo Gallery</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#/signUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-			<li><a  uib-popover popover-trigger="mouseenter" popover-placement="bottom" uib-popover-template="'view/login/login.html'" popover-title="Members Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			<li ng-hide="isValidUser"><a href="#/signUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+			<li ng-hide="isValidUser"><a  uib-popover popover-trigger="mouseenter" popover-placement="bottom" uib-popover-template="'view/login/login.html'" popover-title="Members Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			<li ng-hide="!isValidUser">Welcome, {{header}} </li>
 		</ul>
 	</div>
 </nav>
+</div>
