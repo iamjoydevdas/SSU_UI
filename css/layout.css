@@ -21,3 +21,11 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+.popover.bottom .arrow:after {
+  border-bottom-color: #E53C33;
+}
+
+.popover-title{
+    background: #E53C33;
+}
