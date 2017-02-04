@@ -34,6 +34,13 @@ td {
 	padding : 2px;
 }
 
+.my-modal-header{
+	background-color: #E53C33 !important;
+	color: white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
 .username {
 	padding-top: 15px;
     padding-right: 22px;
@@ -46,4 +53,9 @@ td {
     vertical-align: bottom;
     padding-top: 13px;
     color : blue;
+}
+
+.close-btn {
+	opacity : 0.9 !important;
+	color:white !important;
 }

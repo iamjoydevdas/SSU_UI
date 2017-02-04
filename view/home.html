@@ -57,58 +57,86 @@
 </footer>
 
 <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
+ <form name = "forgetPass">
+  <div class="modal fade" id="myModal" role="dialog" ng-controller='forgotPasswordController'>
     <div class="modal-dialog">
     
       <!-- Modal content-->
       <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="modal-header my-modal-header">
+          <button type="button" class="close close-btn" data-dismiss="modal" ng-click="forgotPassword()">&times;</button>
           <h4 class="modal-title">Forgot Password</h4>
         </div>
-        <div class="modal-body" style="height: 300px;">
-        <form name = "forgetPass">
-			        <div class="form-group">
-					    <label class="control-label col-sm-2" for="firstName">First Name:</label>
-					    <div class="col-sm-6">
-					      <input type="text" class="form-control" name="firstName" id="firstName" ng-required = 'true' ng-model='firstName' placeholder="Enter First Name">
-					    	<span style="color:red" ng-show="signUp.firstName.$dirty && signUp.firstName.$invalid">
-							<span ng-show="signUp.firstName.$error.required">First Name is required.</span></span>
+        <div class="modal-body" style="height: 205px;">
+         <div class="well" style="margin:2px; height:170px">
+       
+			       <div ng-show= "resetValue">
+			        <div >
+					    <label class="control-label col-sm-4" for="usernm">User Name:</label>
+					    <div class="col-sm-8">
+					      <input type="text" class="form-control" name="usernm" ng-readonly="usernameVisibility" id="usernm" ng-required = 'true' ng-model='usernm' ng-blur="checkUserName()" placeholder="Enter User Name">
+					    	<span style="color:red" >
+							<span ng-show="isUserNameBlank">User name is required.</span>
+							<span ng-show="isUserNameIncorrect">Incorrect User Name</span>
+							</span>
 					    </div>
-					  </div>
-        		<!--  <div class="form-group">
-        		 
-    					<label class="control-label col-sm-3 " for="userName">User Name:</label>
-    					 <div class="col-sm-8"> 
-    					
-     					<input type="text" class="form-control" name="userName" id="userName" ng-required = 'true' ng-model='userName' placeholder="User Name">
-					  			<span style="color:red" ng-show="forgetPass.userName.$dirty && forgetPass.userName.$invalid">
-								<span ng-show="forgetPass.userName.$error.required">Username is required.</span></span>
- 						</div>
- 				</div> -->
- 				<!--  </div>
-			  <div class="form-group">
-			    <label class="control-label col-sm-8" for="seqQ">Sequrity Question:</label>
-			     <span class="col-sm-8"> 
-			      <input type="text" class="form-control" name="seqQ" id="seqQ" ng-required = 'true' ng-model='seqQ' placeholder="Sequrity Question">
-			   				 <span style="color:red" ng-show="forgetPass.seqQ.$dirty && forgetPass.seqQ.$invalid">
-							 <span ng-show="forgetPass.seqQ.$error.required">Sequrity Question is required.</span></span>
-			    </span>
-			  </div>
-			  <div class="form-group">
-			    <label class="control-label col-sm-8" for="seqA">Sequrity answer:</label>
-			    <span class="col-sm-8"> 
-			    <input type="text" class="form-control" name="seqA" id="seqA" ng-required = 'true' ng-model='seqA' placeholder="Sequrity Answer">
-			    		<span style="color:red" ng-show="forgetPass.seqA.$dirty && forgetPass.seqA.$invalid">
-						<span ng-show="forgetPass.seqA.$error.required">Sequrity Answer is required.</span></span>
-			   </span>
-			  </div> -->
-			  
-        </form>
+					</div>
+					<Br><Br><br>
+					  <div  ng-show="isSeqQVisible">
+					  	<label class="control-label col-sm-4" for="seqQ">Security Question:</label>
+					    <label class="control-label col-sm-8" for="seqQ">{{securityQuestion}}</label>					    
+					  </div>        		
+			  		 <div ng-show="isSeqQVisible">
+					    <label class="control-label col-sm-4" for="seqA">Answer:</label>
+					    <div class="col-sm-8">
+					      <input type="text" class="form-control" name="seqA" id="seqA" ng-required = 'true' ng-model='seqA' placeholder="Security answer">
+					    	<span style="color:red" >
+							<span ng-show="forgetPass.seqA.$dirty && forgetPass.seqA.$invalid">Please enter answer</span>
+							<span ng-show="seqANotMatched">Security Answer not matched</span>
+							</span>
+					    </div>
+					</div>
+					<div class="form-group" ng-show="isSeqQVisible"> 
+   						 <div class="col-sm-offset-2 col-sm-6">
+    						  <!-- <button type="button" class="btn btn-danger" ng-disabled="forgetPass.seqA.$dirty && forgetPass.seqA.$invalid" ng-click="reset()">Reset</button> -->
+   						 </div>
+  					</div>
+       			</div>
+       			<div ng-show = "!resetValue">
+      				<div>
+				    	<label class="control-label col-sm-4" for="pass">New Password</label>
+				    	<div class="col-sm-8">
+				      		<input type="text" class="form-control" name="pass" id="pass" ng-required = 'true' ng-model='pass' placeholder="Enter New Password">
+				    		<span style="color:red" >
+							<span ng-show="forgetPass.pass.$dirty && forgetPass.pass.$invalid">Please enter New Password</span>
+							</span>
+				   	    </div>
+				   </div>
+				   <br><br>
+				   <div>
+				    	<label class="control-label col-sm-4" for="retypePass">Confirm Password</label>
+				    	<div class="col-sm-8">
+				      		<input type="text" class="form-control" name="retypePass" id="retypePass" ng-required = 'true' ng-model='retypePass' placeholder="Confirm Password">
+				    		<span style="color:red" >
+							
+							<span ng-show="forgetPass.pass.$dirty && forgetPass.retypePass.$dirty && retypePass != pass  ">Confirmed paassword does not match</span>
+							</span>
+				   	    </div>
+				   </div>
+				   <div class="form-group" > 
+   						 <div class="col-sm-offset-2 col-sm-6">
+    						  
+   						 </div>
+  					</div>
+       			</div>
         
+       </div> 
       </div>
       <div class="modal-footer">
+     	  <button type="button" class="btn btn-danger" ng-show = "isSeqQVisible && resetValue" ng-disabled="seqA=='' || seqA== null || seqA== undefined" ng-click="reset()">Reset</button>
+      	  <button type="button" class="btn btn-danger" ng-show = "!resetValue" ng-disabled="retypePass != pass" ng-click="submit()">Submit</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
     </div>
   </div>
+</form>
