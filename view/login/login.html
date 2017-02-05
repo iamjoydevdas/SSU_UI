@@ -10,7 +10,7 @@
 						<td><input class="form-control" type="text" name="usernm" ng-required="true" 
 							ng-model='usernm' />
 							<span style="color:red" ng-show="loginForm.usernm.$dirty && loginForm.usernm.$invalid">
-							<span ng-show="loginForm.usernm.$error.required">Username is required.</span>
+							<span ng-show="loginForm.usernm.$error.required">Username is required.</span></span>
 							
 						</td>
 					</tr>
@@ -21,11 +21,13 @@
 						<td><input class="form-control" type="password" name="pass" ng-required="true"
 							ng-model='pass' />
 							<span style="color:red" ng-show="loginForm.pass.$dirty && loginForm.pass.$invalid">
-							<span ng-show="loginForm.pass.$error.required">Password is required.</span>
+							<span ng-show="loginForm.pass.$error.required">Password is required.</span></span>
 						</td>
 					</tr>
 					<tr>
-						<td><button ng-disabled="loginForm.$invalid" class="btn btn-danger" ng-click=login()>Login</button></td>
+						<td><button ng-disabled="loginForm.$invalid" class="btn btn-danger" ng-click=login()>Login</button>
+						<a href="#" class="forgetPassword" data-toggle="modal" data-target="#myModal"> Forgot Password ?
+						</a></td>
 					</tr>
 					<tr>
 						<td><hr /></td>
@@ -41,3 +43,4 @@
 	</div>	
 	
 </div>
+
