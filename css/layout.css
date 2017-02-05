@@ -29,3 +29,7 @@ footer {
 .popover-title{
     background: #E53C33;
 }
+
+td {
+	padding : 2px;
+}
