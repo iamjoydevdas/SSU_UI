@@ -1,1 +1,1 @@
-angular.module('ssu',['ngRoute','ui.bootstrap','ngAnimate']);
+angular.module('ssu',['ngRoute','ui.bootstrap','ngAnimate', 'toaster']);

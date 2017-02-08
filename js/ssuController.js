@@ -25,11 +25,18 @@ angular.module("ssu").controller('homeController', ["$rootScope",function($rootS
 		$scope.isOpen = false;
 	})
 }])
-.controller('loginController',["$rootScope","$scope", '$uibModal', function($rootScope, $scope, $modal){
+.controller('loginController',["$rootScope","$scope", '$uibModal', 'toaster', function($rootScope, $scope, $modal,toaster){
 	$scope.usernm = "";
 	$scope.pass="";
 	$scope.login = function(){
 		if ($scope.usernm == "runa" && $scope.pass == "1234"){
+			toaster.pop({
+				title: 'Yeppi',
+				type: 'success',
+				timeout: 4000,
+				body: 'I am the GAME.',
+				showCloseButton: true
+			});
 			$rootScope.$broadcast('loginEvent', {
 				header:$scope.usernm 
 			});
