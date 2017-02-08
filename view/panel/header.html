@@ -12,7 +12,7 @@
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li ng-hide="isValidUser"><a href="#/signUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-			<li ng-hide="isValidUser"><a  uib-popover popover-trigger="mouseenter" popover-placement="bottom" uib-popover-template="'view/login/login.html'" popover-title="Members Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			<li ng-hide="isValidUser"><a popover-is-open="isOpen" uib-popover popover-trigger="mouseenter" popover-placement="bottom" uib-popover-template="'view/login/login.html'" popover-title="Members Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 			<li ng-hide="!isValidUser" class="username">Welcome, {{header}} </li>
 		</ul>
 	</div>

@@ -16,62 +16,46 @@ angular.module("ssu").controller('homeController', ["$rootScope",function($rootS
 .controller('headerController',["$rootScope","$scope", function($rootScope, $scope){
 	$scope.header = "";
 	$scope.isValidUser = false;
-	/*$rootScope.$watch($rootScope.header, function(newVal, oldVal){
-		$rootScope.header = newVal;
-		$scope.isValidUser = true;
-	});*/
 	$scope.$on('loginEvent', function (event, data) {
 		console.log(data.header); // 'Some data'
 		$scope.header = data.header;
 		$scope.isValidUser = true;
 	});
+	$scope.$on('closeLoginPopover',function(evt,attr){
+		$scope.isOpen = false;
+	})
 }])
-
-.controller('loginController',["$rootScope","$scope", function($rootScope,$scope){
-
+.controller('loginController',["$rootScope","$scope", '$uibModal', function($rootScope, $scope, $modal){
 	$scope.usernm = "";
 	$scope.pass="";
 	$scope.login = function(){
-
 		if ($scope.usernm == "runa" && $scope.pass == "1234"){
-			//$rootScope.header= $scope.usernm;
 			$rootScope.$broadcast('loginEvent', {
-				header:$scope.usernm // send whatever you want
+				header:$scope.usernm 
 			});
 		}
-
 	};
-
 	$scope.forgotPassword = function(){
-		$rootScope.$broadcast("refreshforgotpass",{
-			refresh : true
+		$rootScope.$broadcast('closeLoginPopover');
+		$rootScope.modalInstance = $modal.open({
+			templateUrl: './view/login/forgetPassword.html',
+			controller: 'forgotPasswordController',
+			backdrop: 'static',
+			modalFade: true,
+			size: 'lg'
 		});
 	};
-
-
+	
 }])
-.controller('forgotPasswordController',['$http', '$scope', function($http, $scope){
+.controller('forgotPasswordController',['$rootScope', '$http', '$scope', function($rootScope, $http, $scope){
+	console.log('helooo')
 	$scope.seqA="";
-	$scope.$on('refreshforgotpass', function (event, data) {
-		if(data.refresh){
-			$scope.usernm="";
-			$scope.isUserNameBlank = false;
-			$scope.isUserNameIncorrect = false;
-			$scope.isSeqQVisible= false;
-			$scope.resetValue = true;
-			$scope.securityQuestion="";
-			$scope.usernameVisibility = false;
-			$scope.seqANotMatched = false;
-			$scope.seqA="";
-		}
-	});
-
 	$scope.usernm="";
 	$scope.isUserNameBlank = false;
 	$scope.isUserNameIncorrect = false;
 	$scope.isSeqQVisible= false;
 	$scope.resetValue = true;
-	$scope.usernameVisibility = true;
+	$scope.usernameVisibility = false;
 	$scope.securityQuestion="";
 	$scope.seqANotMatched = false;
 	$scope.checkUserName = function(){
@@ -108,13 +92,9 @@ angular.module("ssu").controller('homeController', ["$rootScope",function($rootS
 			}).then(function fail(response){
 
 			});
-
 		}
-
 	};
-
 	$scope.reset = function(){
-		
 		if($scope.seqA !=""){
 			$http({
 				method : 'POST',
@@ -126,7 +106,7 @@ angular.module("ssu").controller('homeController', ["$rootScope",function($rootS
 			}).then(function succsess(response){
 				if(response.data.isAnswerMatched){
 					$scope.resetValue = false
-					
+
 				}else{
 					$scope.seqA="";
 					$scope.seqANotMatched = true;				}
@@ -134,9 +114,8 @@ angular.module("ssu").controller('homeController', ["$rootScope",function($rootS
 
 			});
 		}
-
 	};
-
-
-}])
-;
+	$scope.close = function(){
+		$rootScope.modalInstance.dismiss('cancel');
+	}
+}]);
